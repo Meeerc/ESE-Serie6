@@ -19,10 +19,7 @@ public class Stelle extends Element {
                 return false;
             }
         }
-        if (tokens > kapazitaet || kapazitaet < 1 || tokens < 0) {
-            return false;
-        }
-        return true;
+        return tokens <= kapazitaet && kapazitaet >= 1 && tokens >= 0;
     }
 
     @Override
@@ -59,5 +56,8 @@ public class Stelle extends Element {
         this.kapazitaet = kapazitaet;
     }
 
+    public int getDiff() {
+        return this.kapazitaet - this.tokens;
+    }
 
 }

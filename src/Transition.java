@@ -49,4 +49,20 @@ public class Transition extends Element {
         }
         return true;
     }
+
+    public void opperate() {
+        int number = 0;
+        for (Pfeil pfeil: super.getIncomingArrows()){
+            Stelle temp =  (Stelle) pfeil.getSource();
+            number += temp.getTokens() - pfeil.getGewicht();
+        }
+        for (Pfeil pfeil : super.getOutgoingArrows()) {
+            Stelle temp = (Stelle) pfeil.getTarget();
+            if (number > 0) {
+                number -= Math.min(temp.getDiff(), pfeil.getGewicht());
+            }
+        }
+    }
+
+
 }

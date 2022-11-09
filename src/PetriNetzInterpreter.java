@@ -64,10 +64,17 @@ public class PetriNetzInterpreter {
     }
 
     public static List<Transition> alleSchaltbereitenTransitionen(PetriNetz netz) {
-// TODO: ...return alle schaltbereiten Transitionen oder eine leere Liste
+        List<Transition> trans = new ArrayList<>();
+        for (Transition transition: netz.getTransitions()) {
+            if (transition.isReady()){
+                trans.add(transition);
+            }
+        }
+        return trans;
     }
 
     public static void schalteTransition(Transition transition) {
-// TODO: ... bewegen der Tokens
+        transition.opperate();
+
     }
 }

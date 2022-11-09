@@ -48,4 +48,12 @@ public class Pfeil {
     public boolean isSourceReadyToSend() {
         return this.source.readyToSendTokens(this.gewicht);
     }
+    public Element getTarget(){
+        return this.target;
+    }
+    public Element getSource() {
+        return this.source;
+    }
+
+
 }
